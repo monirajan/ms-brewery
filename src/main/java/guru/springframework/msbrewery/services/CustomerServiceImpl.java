@@ -12,7 +12,7 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public CustomerDto getCustomerById(UUID id) {
 		// TODO Auto-generated method stub
-		return CustomerDto.builder().id(id)
+		return CustomerDto.builder().id(UUID.randomUUID())
 				.customerName("Harry Crisp")
 				.build();
 	}
