@@ -32,4 +32,10 @@ public class BeerServiceImpl implements BeerService {
 		
 	}
 
+	@Override
+	public void deleteById(UUID beerId) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
