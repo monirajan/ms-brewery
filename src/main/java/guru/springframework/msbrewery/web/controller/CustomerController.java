@@ -2,6 +2,8 @@ package guru.springframework.msbrewery.web.controller;
 
 import java.util.UUID;
 
+import javax.validation.Valid;
+
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,7 +38,7 @@ public class CustomerController {
 	}
 	
 	@PostMapping
-	public ResponseEntity handlePostCust(@RequestBody CustomerDto customerDto)
+	public ResponseEntity handlePostCust(@RequestBody @Valid CustomerDto customerDto)
 	{
 		CustomerDto savedDto = customerService.saveNewCustomer(customerDto);
 		HttpHeaders headers = new HttpHeaders();
@@ -46,7 +48,7 @@ public class CustomerController {
 	
 	@PutMapping("/{custid}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void handleUpdateCust(@PathVariable("custid") UUID custid, @RequestBody CustomerDto customerDto)
+	public void handleUpdateCust(@PathVariable("custid") UUID custid, @RequestBody @Valid CustomerDto customerDto)
 	{
 		customerService.updateCustomer(custid, customerDto);
 	}

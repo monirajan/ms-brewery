@@ -86,10 +86,11 @@ class CustomerControllerTest {
     public void handleUpdate() throws Exception {
         //given
         CustomerDto customerDto = validCust;
+        customerDto.setId(null);
         String custDtoJson = objectMapper.writeValueAsString(customerDto);
 
         //when
-        mockMvc.perform(put("/api/v1/customer/" + validCust.getId())
+        mockMvc.perform(put("/api/v1/customer/" + UUID.randomUUID())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(custDtoJson))
                 .andExpect(status().isNoContent());
